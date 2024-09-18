@@ -1,4 +1,17 @@
-<div class="row row-cols-1 row-cols-md-3 g-4">
+<div class="alert alert-info" role="alert" *ngIf="loading">
+    <h4 class="alert-heading text-center">
+        Cargando
+    </h4>
+</div>
+<div class="alert alert-danger" role="alert" *ngIf="error">
+    <h4 class="alert-heading">
+        Error
+    </h4>
+    <pre>
+        {{ error | json}}
+    </pre>
+</div>
+<div class="row row-cols-1 row-cols-md-3 g-4" *ngIf="!loading">
     <div class="col" *ngFor="let user of users">
         <div class="card h-100">
             <img [src]="user.avatar" class="card-img-top" alt="...">
